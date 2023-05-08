@@ -118,22 +118,13 @@ public class BooksDatabaseClient extends Application {
             String author = commandParts[0].split(":")[1];
             String library = commandParts[1].split(":")[1];
             String message = author + ";" + library + "#";
-            //System.out.println("Client: Request message = " + message);
+        
 
-            // Create an output stream to send the message to the server via the client socket
-            //OutputStream os = clientSocket.getOutputStream();
-            //OutputStreamWriter osw = new OutputStreamWriter(os);
-            //System.out.println("Client: Sending request to the server."); // test
-            //osw.write(message + "\n"); // Add newline character here
-            //System.out.println("Client: Request sent to the server."); //test
-            //osw.flush();
             OutputStream os = clientSocket.getOutputStream();
             OutputStreamWriter osw = new OutputStreamWriter(os);
             BufferedWriter bw = new BufferedWriter(osw);
-            //System.out.println("Client: Sending request to the server."); // test
             bw.write(message);
             bw.newLine();
-            //System.out.println("Client: Request sent to the server."); //test
             bw.flush();
 
         } catch (IOException e) {
